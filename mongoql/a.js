@@ -1,8 +1,8 @@
-use boardgames
+db = connect( 'mongodb://localhost/boardgames' );
 
-db.games.aggregate([
+printjson(db.games.aggregate( [
     {
-        $match : {gid: 3}
+        $match : {gid: 1}
     },
     {
         $lookup : 
@@ -14,11 +14,12 @@ db.games.aggregate([
         }
     },
     {
-        $project: {_id: -1, gid: 1, name: 1, year: 1, ranking: 1, users_rated: 1, url: 1, image: 1, reviews: "$reviewsDocs._id", timestamp: "$$NOW"}
+        $project: {_id: -1, gid: 1, name: 1, year: 1, ranking: 1, users_rated: 1, url: 1, image: 1, reviews: "$reviewsDocs._id"}
     }
-])
+] )
+)
 
-db.reviews.aggregate([
+printjson(db.reviews.aggregate([
     {
         $match : {$and: [{user: "desertfox2004"}, {rating: {$gt: 5}}] }
     },
@@ -28,4 +29,4 @@ db.reviews.aggregate([
     {
         $project: {"_id": 1, "c_id": 1, "user": 1, "rating": 1, "c_text": 1, "gid": 1, "game_name": "$gameReviews.name"}
     }
-])
+]))
