@@ -58,7 +58,7 @@ public class BoardgameRESTController {
         ReviewResult rr = new ReviewResult();
         rr.setRating(String.valueOf(rating));
         rr.setTimestamp(LocalDateTime.now().toString());
-        rr.setGames(reviews);
+        rr.setGames(reviews); // look through reviews to get game name and populate
         job.add("result", rr.toJSON());
         result = job.build();
         return result;

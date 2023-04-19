@@ -1,7 +1,5 @@
 package ibf2022.paf.day28workshop.model;
 
-import java.util.List;
-
 import org.bson.Document;
 
 import jakarta.json.Json;
@@ -15,6 +13,7 @@ public class Review {
     private String c_text;
     private String c_id;
     private Integer gid;
+    private String name;
 
     public String get_id() {
         return _id;
@@ -52,8 +51,14 @@ public class Review {
     public void setGid(Integer gid) {
         this.gid = gid;
     }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-
+    
     public static Review create(Document d) {
         Review review = new Review();
         review.set_id(d.getObjectId("_id").toString());
@@ -75,5 +80,6 @@ public class Review {
         .add("c_text", getC_text())
         .build();
     }
+    
     
 }
