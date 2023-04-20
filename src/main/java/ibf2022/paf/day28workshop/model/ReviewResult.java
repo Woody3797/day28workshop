@@ -1,9 +1,6 @@
 package ibf2022.paf.day28workshop.model;
 
-import java.time.LocalDateTime;
 import java.util.List;
-
-import org.bson.Document;
 
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
