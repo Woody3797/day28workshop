@@ -82,7 +82,7 @@ public class Game {
 
     public static Game create(Document d) {
         Game game = new Game();
-        List reviewsArr = (ArrayList) d.get("reviews");
+        List<Object> reviewsArr = (ArrayList<Object>) d.get("reviews");
         List<String> reviewsURLs = new LinkedList<>();
 
         for (Object o : reviewsArr) {

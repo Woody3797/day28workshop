@@ -70,7 +70,6 @@ public class BoardgameRepository {
         return Optional.of(game);
     }
 
-
     /* db.reviews.aggregate([
     {
         $match : {$and: [{user: "desertfox2004"}, {rating: {$gt: 5}}] }
@@ -105,8 +104,5 @@ public class BoardgameRepository {
         AggregationResults<Review> results = template.aggregate(pipeline, "reviews", Review.class);
         return results.getMappedResults();
     }
-
-
-
 
 }
