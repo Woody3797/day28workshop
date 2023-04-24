@@ -80,6 +80,7 @@ public class Game {
         this.reviews = reviews;
     }
 
+    @SuppressWarnings("unchecked")
     public static Game create(Document d) {
         Game game = new Game();
         List<Object> reviewsArr = (ArrayList<Object>) d.get("reviews");
